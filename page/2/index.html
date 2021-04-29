@@ -172,7 +172,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-count">19</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -185,7 +185,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -214,6 +214,151 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://chun916.github.io/2021/03/31/C++%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%EF%BC%881%EF%BC%89%EF%BC%9A%E4%B8%8D%E5%B8%A6%E6%8C%87%E9%92%88%E7%9A%84%E7%B1%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="nie shilin">
+      <meta itemprop="description" content="桃李春风一杯酒，江湖夜雨十年灯。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="chun'sBlog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/03/31/C++%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%EF%BC%881%EF%BC%89%EF%BC%9A%E4%B8%8D%E5%B8%A6%E6%8C%87%E9%92%88%E7%9A%84%E7%B1%BB/" class="post-title-link" itemprop="url">C++面向对象高级程序设计（1）：不带指针的类</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-03-31 19:04:46" itemprop="dateCreated datePublished" datetime="2021-03-31T19:04:46+08:00">2021-03-31</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-04-03 19:21:18" itemprop="dateModified" datetime="2021-04-03T19:21:18+08:00">2021-04-03</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/C-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" itemprop="url" rel="index"><span itemprop="name">C++面向对象高级程序设计</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="Header头文件中的防卫式声明-guard"><a href="#Header头文件中的防卫式声明-guard" class="headerlink" title="Header头文件中的防卫式声明(guard)"></a>Header头文件中的防卫式声明(guard)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#ifndef __COMPLEX__</span><br><span class="line">#define __COMPLEX__</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">写.h文件时，通常会加上防卫式声明，有以下两种方式：</span><br><span class="line"></span><br><span class="line">1. 宏定义</span><br><span class="line">#ifndef _FILENAME_</span><br><span class="line">#define _FILENAME_</span><br><span class="line">&#x2F;&#x2F;...</span><br><span class="line">#endif</span><br><span class="line">2. 编译器指令</span><br><span class="line">#pragma once</span><br><span class="line">但是，为什么头文件中需要添加这种防卫式声明呢？如果没有这样的声明，会出现怎样的问题。这里，先看一个例子。</span><br><span class="line"></span><br><span class="line">-- &quot;Car.h&quot;，代码如下（并没有添加防卫式声明）：</span><br><span class="line">&#x2F;&#x2F; Car.h</span><br><span class="line">class Car</span><br><span class="line">&#123;</span><br><span class="line">&#x2F;&#x2F; ...</span><br><span class="line">&#125;;</span><br><span class="line">-- &quot;Person.h&quot;，代码如下（包含了Car.h文件）：</span><br><span class="line">&#x2F;&#x2F; Person.h</span><br><span class="line">#include &quot;Car.h&quot;</span><br><span class="line">class Person</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">    Car car;</span><br><span class="line">&#125;;</span><br><span class="line">-- 在&quot;main.cpp&quot;中，我们同时include两个头文件：</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; main.cpp</span><br><span class="line">#include &quot;Car.h&quot;</span><br><span class="line">#include &quot;Person.h&quot;</span><br><span class="line">int main(int argc, const char * argv[]) &lt;br&gt;&#123;</span><br><span class="line">    Person p;</span><br><span class="line">&#125;</span><br><span class="line">此时，我们会发现编译出错：Redefinition of &#39;Car&#39;.</span><br><span class="line"></span><br><span class="line">可是为什么会出现这样的情况呢？</span><br><span class="line"></span><br><span class="line">我们需要知道，在预编译阶段，编译器会把.h文件展开，即main.cpp中的代码可以看做是：</span><br><span class="line"></span><br><span class="line">class Car</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F; ...</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class Car</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F; ...</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class Person</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">    Car car;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main(int argc, const char * argv[]) &#123;</span><br><span class="line">    Person p;</span><br><span class="line">&#125;</span><br><span class="line">所以，我们可以知道防卫式声明的作用是：防止由于同一个头文件被包含多次，而导致了重复定义。</span><br><span class="line"></span><br><span class="line">在这两种声明方式中：</span><br><span class="line"></span><br><span class="line">　　#ifndef 依赖于宏定义名，当宏已经定义时，#endif之前的代码就会被忽略，但是这里需要注意宏命名重名的问题；</span><br><span class="line"></span><br><span class="line">　　#pragma once 只能保证同一个文件不会被编译多次，但是当两个不同的文件内容相同时，仍然会出错。而且这是微软提供的编译器命令，当代码需要跨平台时，需要使用宏定义方式。</span><br></pre></td></tr></table></figure>
+<h3 id="引用复数类的程序"><a href="#引用复数类的程序" class="headerlink" title="引用复数类的程序"></a>引用复数类的程序</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &quot;complex.h&quot;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">ostream&amp;</span><br><span class="line">operator &lt;&lt; (ostream&amp; os, const complex&amp; x)</span><br><span class="line">&#123;</span><br><span class="line">  return os &lt;&lt; &#39;(&#39; &lt;&lt; real (x) &lt;&lt; &#39;,&#39; &lt;&lt; imag (x) &lt;&lt; &#39;)&#39;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">  complex c1(2, 1);</span><br><span class="line">  complex c2(4, 0);</span><br><span class="line"></span><br><span class="line">  cout &lt;&lt; c1 &lt;&lt; endl;</span><br><span class="line">  cout &lt;&lt; c2 &lt;&lt; endl;</span><br><span class="line">  </span><br><span class="line">  cout &lt;&lt; c1+c2 &lt;&lt; endl;</span><br><span class="line">  cout &lt;&lt; c1-c2 &lt;&lt; endl;</span><br><span class="line">  cout &lt;&lt; c1*c2 &lt;&lt; endl;</span><br><span class="line">  cout &lt;&lt; c1 &#x2F; 2 &lt;&lt; endl;</span><br><span class="line">  </span><br><span class="line">  cout &lt;&lt; conj(c1) &lt;&lt; endl;</span><br><span class="line">  cout &lt;&lt; norm(c1) &lt;&lt; endl;</span><br><span class="line">  cout &lt;&lt; polar(10,4) &lt;&lt; endl;</span><br><span class="line">  </span><br><span class="line">  cout &lt;&lt; (c1 +&#x3D; c2) &lt;&lt; endl;</span><br><span class="line">  </span><br><span class="line">  cout &lt;&lt; (c1 &#x3D;&#x3D; c2) &lt;&lt; endl;</span><br><span class="line">  cout &lt;&lt; (c1 !&#x3D; c2) &lt;&lt; endl;</span><br><span class="line">  cout &lt;&lt; +c2 &lt;&lt; endl;</span><br><span class="line">  cout &lt;&lt; -c2 &lt;&lt; endl;</span><br><span class="line">  </span><br><span class="line">  cout &lt;&lt; (c2 - 2) &lt;&lt; endl;</span><br><span class="line">  cout &lt;&lt; (5 + c2) &lt;&lt; endl;</span><br><span class="line">  </span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="complex类"><a href="#complex类" class="headerlink" title="complex类"></a>complex类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#ifndef __COMPLEX__</span><br><span class="line">#define __COMPLEX__</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;类的声明</span><br><span class="line">class complex</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">  complex (double r &#x3D; 0, double i &#x3D; 0): re (r), im (i) &#123; &#125;</span><br><span class="line">  complex&amp; operator +&#x3D; (const complex&amp;);</span><br><span class="line">  complex&amp; operator -&#x3D; (const complex&amp;);</span><br><span class="line">  complex&amp; operator *&#x3D; (const complex&amp;);</span><br><span class="line">  complex&amp; operator &#x2F;&#x3D; (const complex&amp;);</span><br><span class="line">  double real () const &#123; return re; &#125;</span><br><span class="line">  double imag () const &#123; return im; &#125;</span><br><span class="line">private:</span><br><span class="line">  double re, im;  &#x2F;&#x2F;可通过模板快捷更换数据类型，re,im在外界不能直接调用， 可通过real()、imag()输出</span><br><span class="line"></span><br><span class="line">  friend complex&amp; __doapl (complex *, const complex&amp;);</span><br><span class="line">  friend complex&amp; __doami (complex *, const complex&amp;);</span><br><span class="line">  friend complex&amp; __doaml (complex *, const complex&amp;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>class template(模板): t mplate<typename t></typename></li>
+<li>inline(内联)函数：函数若在class body内定义完成，便成为inline候选人，优点：速度较快，但某些复杂函数无法在class body内完成,是否成为inline function 由编译器决定。</li>
+<li>上面的函数是常量成员函数，即，该函数不改变类中成员数据的内容，其中const的位置是在参数列表后，即在()后面，{}前面。在确定函数不改变数据内容的时候，一定要将函数写成常量成员函数的形式，即一定要加const。因为常量类只能调用常量成员函数，若函数不加const，则常量类调用该函数的时候就会出现错误，因为调用非常量成员函数，会改变类的成员数据，即与常量类自相矛盾。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">inline double</span><br><span class="line">image(const complex&amp; x)</span><br><span class="line">&#123;</span><br><span class="line">	return x.imag();</span><br><span class="line">&#125;</span><br><span class="line">不在class body内的函数，添加inline关键字，建议编译器设置为inline function</span><br></pre></td></tr></table></figure></li>
+<li>access level（访问级别）</li>
+</ul>
+<ol>
+<li>public 供外界访问和使用，如外界使用的函数</li>
+<li>private 只在class内可用，比如数据部分</li>
+<li>protected 受保护的</li>
+</ol>
+<ul>
+<li>构造函数 constructor（ctor）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">complex (double r &#x3D; 0, double i &#x3D; 0): re (r), im (i) &#123; &#125;</span><br><span class="line">complex (double r &#x3D; 0, double i &#x3D; 0) &#123; re&#x3D;r ; im &#x3D; i &#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol>
+<li>函数名一定等于类名</li>
+<li>double r = 0, double i = 0 ：默认实参，创建函数时没有传参时调用</li>
+<li>没有返回值类型，因为构造函数用来创建对象</li>
+<li>: re (r), im (i)   //初始值，初始列，构造函数的独有语法，和大括号内的赋值是不同阶段，构造函数中要尽量使用值的初始化，而不是赋值，这样性能会更高。<br>大括号中同样可以赋值,但会放弃初始化的阶段，效率低了些。<br>构造函数也可放在类的private区域，此时使用构造函数创建类将是错误的，因为private不能被访问到，即不允许外界通过构造函数创建类，单例模式即是如此。</li>
+<li>不带指针的类多半不用写析构函数</li>
+<li>ctor 可以有很多个–overloading(重载)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">double real () const &#123; return re;&#125;</span><br><span class="line">void real(double r)  &#123; re &#x3D; r; &#125; </span><br><span class="line">&#x2F;&#x2F;real函数编译后的实际名称不同，取决于编译器，所以函数名称并不相同。</span><br></pre></td></tr></table></figure></li>
+<li>防止函数重载调用冲突<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">complex (double r &#x3D; 0, double i &#x3D; 0): re (r), im (i) &#123; &#125;</span><br><span class="line">complex () ： re(0), im(0) &#123;&#125;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">	complex c1;  &#x2F;&#x2F;无法确定调用哪一个</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>构造函数放在private区，是一种单例模式（Singleton)。</li>
+</ol>
+<ul>
+<li>const<br>class类内的函数有两种：会/不会改变数据内容，不会改变数据内容的函数要在()后{}前加上const。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	const complex c1(2,1);  &#x2F;&#x2F;构造函数，构造常量复数</span><br><span class="line">	cout&lt;&lt;c1.real();</span><br><span class="line">	cout&lt;&lt;c1.imag();</span><br><span class="line">	&#x2F;&#x2F;如果函数未加const，构造的复数不可变，调用函数产生冲突，编译器会报错。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>参数的传递：pass by value vs pass by reference(to const) (按值传递或引用传递)</li>
+</ul>
+<ol>
+<li>尽量不用按值传递，尤其是数据占用字节数较多时，值传递会将参数拷贝并传递，最好所有的参数都使用引用传递，引用底层就是指针。</li>
+<li>引用传递形参会改变实参，通过const防止修改数值。</li>
+</ol>
+<ul>
+<li><p>返回值传递： return by value vs return by reference(to const)<br>返回值的传递尽量使用引用传递</p>
+</li>
+<li><p>函数内新创建的变量，函数结束后会销毁所占内存空间，不能使用引用传递。</p>
+</li>
+<li><p>friend（友元）<br>通过友元类、友元函数访问类的私有成员变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class complex</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">  complex (double r &#x3D; 0, double i &#x3D; 0): re (r), im (i) &#123; &#125;</span><br><span class="line">  </span><br><span class="line">  int func(const complex&amp; param) </span><br><span class="line">  &#123;</span><br><span class="line">  	return param.re + param.im;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">private:</span><br><span class="line">  double re, im; </span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">	complex c1(2,1);</span><br><span class="line">	complex c2;</span><br><span class="line">	c2.func(c1);</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;相同class的各个objects互为friends(友元)，c2是c1的friends，所以可以直接访问c1的私有成员变量re、im。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="操作符重载和临时对象"><a href="#操作符重载和临时对象" class="headerlink" title="操作符重载和临时对象"></a>操作符重载和临时对象</h3></li>
+<li><p>c++中操作符就是函数，可以由设计者设计操作符功能</p>
+</li>
+<li><p>操作符重载1-成员函数</p>
+</li>
+</ul>
+<ol>
+<li>任何成员函数又有一个隐藏的this pointer，指向调用者。</li>
+<li>传递者无需知道接收者是以reference形式接收返回值， 即函数的使用者不必在意函数返回值的传递是 return by value or return by reference(to const)</li>
+</ol>
+<ul>
+<li>操作符重载2-非成员函数 无this</li>
+</ul>
+<ol>
+<li>temp object（临时对象） typename()<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">complex( real(x)+real(y), image(x) + image(y) );  &#x2F;&#x2F;创建一个complex类的临时对象，没有名称,到下一行生命周期结束， 就像int(i)</span><br></pre></td></tr></table></figure></li>
+<li>1中，此时返回值是新创建的临时对象，不能return by reference。</li>
+</ol>
+<ul>
+<li>特殊操作符写为全局函数，如“&lt;&lt;”</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+ 
+
 
     
 
