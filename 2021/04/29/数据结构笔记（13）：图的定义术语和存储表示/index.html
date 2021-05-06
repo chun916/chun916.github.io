@@ -21,17 +21,17 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"chun916.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+    var CONFIG = {"hostname":"chun916.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
-<meta name="description" content="如何说明图、顶点、边&#x2F;弧、子图、有向图、无向图、网的含义？ 图是由一个顶点集和一个边集组成的数据结构。 若顶点v和w之间的边没有方向，则称这条边为无向边，表示为(v,w)；相应的图称为无向图。 若从顶点v到w的边有方向，则称这条边为有向边(又称为弧)，表示为&lt; v,w &gt;；相应的图称为有向图。 带权的图分别称为有向网和无向网。 设图G&#x3D;(V,E)和图G1&#x3D;(V1,E1),且V1属于V,">
+<meta name="description" content="如何说明图、顶点、边&#x2F;弧、子图、有向图、无向图、网的含义？ 图是由一个顶点集和一个边集组成的数据结构。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据结构笔记（13）：图的定义术语和存储表示">
 <meta property="og:url" content="https://chun916.github.io/2021/04/29/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0%EF%BC%8813%EF%BC%89%EF%BC%9A%E5%9B%BE%E7%9A%84%E5%AE%9A%E4%B9%89%E6%9C%AF%E8%AF%AD%E5%92%8C%E5%AD%98%E5%82%A8%E8%A1%A8%E7%A4%BA/index.html">
 <meta property="og:site_name" content="chun&#39;sBlog">
-<meta property="og:description" content="如何说明图、顶点、边&#x2F;弧、子图、有向图、无向图、网的含义？ 图是由一个顶点集和一个边集组成的数据结构。 若顶点v和w之间的边没有方向，则称这条边为无向边，表示为(v,w)；相应的图称为无向图。 若从顶点v到w的边有方向，则称这条边为有向边(又称为弧)，表示为&lt; v,w &gt;；相应的图称为有向图。 带权的图分别称为有向网和无向网。 设图G&#x3D;(V,E)和图G1&#x3D;(V1,E1),且V1属于V,">
+<meta property="og:description" content="如何说明图、顶点、边&#x2F;弧、子图、有向图、无向图、网的含义？ 图是由一个顶点集和一个边集组成的数据结构。">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-04-29T12:50:43.000Z">
-<meta property="article:modified_time" content="2021-05-06T12:36:15.271Z">
+<meta property="article:modified_time" content="2021-05-06T13:47:48.585Z">
 <meta property="article:author" content="nie shilin">
 <meta property="article:tag" content="数据结构，图，笔记">
 <meta name="twitter:card" content="summary">
@@ -259,7 +259,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-05-06 20:36:15" itemprop="dateModified" datetime="2021-05-06T20:36:15+08:00">2021-05-06</time>
+        <time title="Modified: 2021-05-06 21:47:48" itemprop="dateModified" datetime="2021-05-06T21:47:48+08:00">2021-05-06</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -283,6 +283,10 @@
     <div class="post-body" itemprop="articleBody">
         <h3 id="如何说明图、顶点、边-弧、子图、有向图、无向图、网的含义？"><a href="#如何说明图、顶点、边-弧、子图、有向图、无向图、网的含义？" class="headerlink" title="如何说明图、顶点、边/弧、子图、有向图、无向图、网的含义？"></a>如何说明图、顶点、边/弧、子图、有向图、无向图、网的含义？</h3><ul>
 <li>图是由一个顶点集和一个边集组成的数据结构。</li>
+</ul>
+<a id="more"></a>
+
+<ul>
 <li>若顶点v和w之间的边没有方向，则称这条边为无向边，表示为(v,w)；相应的图称为无向图。</li>
 <li>若从顶点v到w的边有方向，则称这条边为有向边(又称为弧)，表示为&lt; v,w &gt;；相应的图称为有向图。</li>
 <li>带权的图分别称为有向网和无向网。</li>
@@ -414,7 +418,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">nie shilin</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
   </div>
 
     </div>
