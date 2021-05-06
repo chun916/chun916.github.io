@@ -172,7 +172,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">20</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -185,7 +185,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -214,6 +214,93 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://chun916.github.io/2021/04/01/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E9%A2%98%E9%9B%86%EF%BC%9A%E6%A0%88-%E8%83%A1%E5%90%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="nie shilin">
+      <meta itemprop="description" content="桃李春风一杯酒，江湖夜雨十年灯。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="chun'sBlog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/04/01/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E9%A2%98%E9%9B%86%EF%BC%9A%E6%A0%88-%E8%83%A1%E5%90%8C/" class="post-title-link" itemprop="url">程序设计题集：栈-胡同</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-04-01 17:34:48" itemprop="dateCreated datePublished" datetime="2021-04-01T17:34:48+08:00">2021-04-01</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-04-06 20:56:31" itemprop="dateModified" datetime="2021-04-06T20:56:31+08:00">2021-04-06</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E9%A2%98%E9%9B%86/" itemprop="url" rel="index"><span itemprop="name">程序设计题集</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="栈与队列：胡同"><a href="#栈与队列：胡同" class="headerlink" title="栈与队列：胡同"></a>栈与队列：胡同</h2><h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>有一个死胡同，宽度刚好只能让一辆汽车通过，偏偏老有汽车开到死胡同来，这下麻烦了，最先开来的汽车要最后才能倒退出去。给定一个汽车开来的序列和一个可能的倒车出去的序列，请判断汽车能否都倒退出去，若能则输出Yes，否则输出No。</p>
+<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>首先输入一个整数T，表示测试数据的组数，然后是T组测试数据。每组测试数据首先输入一个正整数n（n≤10），代表开来的汽车数，然后输入2n个整数，其中，前n个整数表示汽车开来的序列，后n个整数表示汽车可能倒出的序列。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">4 1 2 3 4 2 1 4 3</span><br><span class="line">4 1 2 3 4 4 2 1 3</span><br></pre></td></tr></table></figure>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>对于每组测试，判断能否倒车出该死胡同，若能则输出“Yes”，否则输出“No”。引号不必输出。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Yes</span><br><span class="line">No</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;stack&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">const int N&#x3D;10;</span><br><span class="line"></span><br><span class="line">bool isTrue(int a[], int b[], int n)</span><br><span class="line">&#123;</span><br><span class="line">	stack&lt;int&gt; sq;</span><br><span class="line">	int cnt&#x3D;0;</span><br><span class="line">	for(int i&#x3D;0;i&lt;n;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		sq.push(a[i]);</span><br><span class="line">		while(!sq.empty()&amp;&amp;(sq.top()&#x3D;&#x3D;b[cnt]))  &#x2F;&#x2F;直到栈顶元素和数组下标为cnt元素不匹配时，退出while循环</span><br><span class="line">		&#123;</span><br><span class="line">			sq.pop();</span><br><span class="line">			cnt++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return sq.empty();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int t;</span><br><span class="line">	cin&gt;&gt;t;</span><br><span class="line">	while(t--)</span><br><span class="line">	&#123;</span><br><span class="line">		int n;</span><br><span class="line">		cin&gt;&gt;n;</span><br><span class="line">		int * a &#x3D; new int [n];</span><br><span class="line">		for(int i&#x3D;0;i&lt;n;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			cin&gt;&gt;a[i];</span><br><span class="line">		&#125;</span><br><span class="line">		int * b &#x3D; new int [n];</span><br><span class="line">		for(int i&#x3D;0;i&lt;n;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			cin&gt;&gt;b[i];</span><br><span class="line">		&#125;</span><br><span class="line">		if(isTrue(a,b,n))	cout&lt;&lt;&quot;Yes&quot;&lt;&lt;endl;</span><br><span class="line">		else	cout&lt;&lt;&quot;No&quot;&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;	</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+ 
+
 
     
 
@@ -567,7 +654,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-04-06 21:00:35" itemprop="dateModified" datetime="2021-04-06T21:00:35+08:00">2021-04-06</time>
+        <time title="Modified: 2021-05-06 20:37:13" itemprop="dateModified" datetime="2021-05-06T20:37:13+08:00">2021-05-06</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -593,7 +680,7 @@
 
 <h2 id="什么是队列？队列的特点是什么？"><a href="#什么是队列？队列的特点是什么？" class="headerlink" title="什么是队列？队列的特点是什么？"></a>什么是队列？队列的特点是什么？</h2><p> 队列是一种操作受限的线性表，只允许在表的一端进行插入，而在表的另一端进行删除。<br> 队列的特点是先进先出。</p>
 <h2 id="什么是循环队列？为什么要构成循环队列？"><a href="#什么是循环队列？为什么要构成循环队列？" class="headerlink" title="什么是循环队列？为什么要构成循环队列？"></a>什么是循环队列？为什么要构成循环队列？</h2><p>顺序存储结构的队列会出现 假溢出 的情况，通过循环队列可以解决顺序队列的缺点。<br>循环队列是将顺序队列臆造为一个环状的空间，即把存储队列元素的表从逻辑上视作一个环。<br>当首指针Q.front=MaxSize-1后，再前进一个位置就自动到0，用除法取余（%）运算实现。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int rear;  &#x2F;&#x2F;尾指针，指向非空队列队尾元素的下一个位置</span><br><span class="line">rear&#x3D;(rear+1) % MaxQSize;  &#x2F;&#x2F;入队操作</span><br><span class="line">front&#x3D;（front&#x3D;1）% MaxQSize;  &#x2F;  &#x2F;出队操作</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int rear;  &#x2F;&#x2F;尾指针，指向非空队列队尾元素的下一个位置</span><br><span class="line">rear&#x3D;(rear+1) % MaxQSize;  &#x2F;&#x2F;入队操作</span><br><span class="line">front&#x3D;（front+1）% MaxQSize;  &#x2F;  &#x2F;出队操作</span><br></pre></td></tr></table></figure>
 <h2 id="如何判断循环队列的队空、队满？"><a href="#如何判断循环队列的队空、队满？" class="headerlink" title="如何判断循环队列的队空、队满？"></a>如何判断循环队列的队空、队满？</h2><p>front==rear 无法区分队满队空<br> 队满：牺牲一个元素空间，当(rear+1)%MaxQSize==front时，队满<br> 对空：front==rear</p>
 <h2 id="循环队列中的元素个数如何得到？"><a href="#循环队列中的元素个数如何得到？" class="headerlink" title="循环队列中的元素个数如何得到？"></a>循环队列中的元素个数如何得到？</h2><p>m:队列的容量<br>元素个数=(rear-front+m) % m</p>
 <h2 id="循环队列的入队、出队、取队头元素、初始化等操作如何实现？"><a href="#循环队列的入队、出队、取队头元素、初始化等操作如何实现？" class="headerlink" title="循环队列的入队、出队、取队头元素、初始化等操作如何实现？"></a>循环队列的入队、出队、取队头元素、初始化等操作如何实现？</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">const int MaxQSize&#x3D;100;  &#x2F;&#x2F;最大长度</span><br><span class="line">typedef int ElemType;</span><br><span class="line">struct SqQueue&#123;</span><br><span class="line">	ElemType * base;</span><br><span class="line">	int front;  &#x2F;&#x2F;头指针</span><br><span class="line">	int rear;  &#x2F;&#x2F;尾指针</span><br><span class="line">	void Init();</span><br><span class="line">	void Clear();</span><br><span class="line">	ElemType GetFront();  &#x2F;&#x2F;取队头</span><br><span class="line">	void EnQueue(ElemType e);  &#x2F;&#x2F;入队</span><br><span class="line">	void DeQueue();  &#x2F;&#x2F;出队</span><br><span class="line">	bool Empty();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void SqQueue::Init()&#123;</span><br><span class="line">	base &#x3D; new ElemType[MaxQSize];</span><br><span class="line">	front&#x3D;rear&#x3D;0;</span><br><span class="line">&#125;</span><br><span class="line">void SqQueue::Empty()&#123;</span><br><span class="line">	return front&#x3D;&#x3D;rear;</span><br><span class="line">&#125;</span><br><span class="line">void SqQueue::Clear()&#123;</span><br><span class="line">	front&#x3D;rear&#x3D;0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ElemType SqQueue::GetFront()&#123;</span><br><span class="line">	return base[front];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void SqQueue::EnQueue(ElemType e)&#123;</span><br><span class="line">	if((rear+1)%MaxQSize&#x3D;&#x3D;front)	return;  &#x2F;&#x2F;队满</span><br><span class="line">	base[rear]&#x3D;e;</span><br><span class="line">	rear&#x3D;(rear+1)%MaxQSize;</span><br><span class="line">&#125;</span><br><span class="line">void SqQueue::DeQueue()&#123;</span><br><span class="line">	if(front&#x3D;&#x3D;rear)	return;  &#x2F;&#x2F;队空</span><br><span class="line">	front&#x3D;(front+1)%MaxQSize;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -657,7 +744,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-03-30 21:21:40" itemprop="dateModified" datetime="2021-03-30T21:21:40+08:00">2021-03-30</time>
+        <time title="Modified: 2021-05-06 20:37:11" itemprop="dateModified" datetime="2021-05-06T20:37:11+08:00">2021-05-06</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -751,7 +838,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-03-30 21:21:43" itemprop="dateModified" datetime="2021-03-30T21:21:43+08:00">2021-03-30</time>
+        <time title="Modified: 2021-05-06 20:37:07" itemprop="dateModified" datetime="2021-05-06T20:37:07+08:00">2021-05-06</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -779,10 +866,24 @@
 <h3 id="什么是链表？"><a href="#什么是链表？" class="headerlink" title="什么是链表？"></a>什么是链表？</h3><p>用一组地址任意的存储单元存放线性表中的数据元素。<br>结点=元素 + 指针<br>链表是用结点的序列表示的线性表。</p>
 <h3 id="带头结点的单链表中头指针指向哪个结点？"><a href="#带头结点的单链表中头指针指向哪个结点？" class="headerlink" title="带头结点的单链表中头指针指向哪个结点？"></a>带头结点的单链表中头指针指向哪个结点？</h3><p>链表的头指针指向头结点。</p>
 <h3 id="带头结点的单链表的访问规则？"><a href="#带头结点的单链表的访问规则？" class="headerlink" title="带头结点的单链表的访问规则？"></a>带头结点的单链表的访问规则？</h3><h3 id="带头结点的单链表的最后一个结点的指针域是什么？"><a href="#带头结点的单链表的最后一个结点的指针域是什么？" class="headerlink" title="带头结点的单链表的最后一个结点的指针域是什么？"></a>带头结点的单链表的最后一个结点的指针域是什么？</h3><p>最后一个结点的指针域是空指针，值为NULL。</p>
-<h3 id="如何分别用头插法和尾插法建立带头结点的单链表？"><a href="#如何分别用头插法和尾插法建立带头结点的单链表？" class="headerlink" title="如何分别用头插法和尾插法建立带头结点的单链表？"></a>如何分别用头插法和尾插法建立带头结点的单链表？</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;头插法</span><br><span class="line">&#x2F;&#x2F;单链表的实现</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>//后插法创建单链表<br>void LinkList::createlist(int n)<br>{<br>    head=new LNode;<br>    head-&gt;next=NULL;<br>    LNode * p=head;<br>    while(n–)<br>    {<br>        LNode * q=new LNode;<br>        cin&gt;&gt;q-&gt;data;<br>        q-&gt;next=NULL;<br>        p-&gt;next=q;<br>        p=q;<br>    }<br>}</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;前插法</span><br><span class="line"> void LinkList::Create(int n)</span><br><span class="line"> &#123;</span><br><span class="line"> 	Init();</span><br><span class="line"> 	for(int i&#x3D;n;i&gt;0;i--)</span><br><span class="line"> 	&#123;</span><br><span class="line"> 		LNode * p&#x3D;new LNode;</span><br><span class="line">		 cin&gt;&gt;p-&gt;data;</span><br><span class="line">		 p-&gt;next&#x3D;head-&gt;next;</span><br><span class="line">		 head-&gt;next&#x3D;p;	</span><br><span class="line">	&#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="链表的建立、遍历、查找、插入、删除等算法的思想和实现？"><a href="#链表的建立、遍历、查找、插入、删除等算法的思想和实现？" class="headerlink" title="链表的建立、遍历、查找、插入、删除等算法的思想和实现？"></a>链表的建立、遍历、查找、插入、删除等算法的思想和实现？</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;链表的建立插入</span><br><span class="line"> #include&lt;iostream&gt;</span><br><span class="line"> using namespace std;</span><br><span class="line"> </span><br><span class="line"> typedef int ElemType;</span><br><span class="line"> </span><br><span class="line"> struct LNode&#123;</span><br><span class="line"> 	ElemType data;</span><br><span class="line"> 	LNode * next;</span><br><span class="line"> &#125;; </span><br><span class="line"> </span><br><span class="line"> struct LinkList&#123;</span><br><span class="line"> 	LNode * head;</span><br><span class="line"> 	void Init();  &#x2F;&#x2F;初始化  </span><br><span class="line"> 	void Create(int n);</span><br><span class="line">    void InsertBefore(int i,ElemType e);</span><br><span class="line"> &#125;;</span><br><span class="line"> </span><br><span class="line"> void LinkList::Init()&#123;</span><br><span class="line"> 	head&#x3D;new LNode;</span><br><span class="line"> 	head-&gt;next&#x3D;NULL;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> void LinkList::InsertBefore(int i,ElemType e)</span><br><span class="line"> &#123;</span><br><span class="line"> 	LNode * p&#x3D;head;</span><br><span class="line"> 	while(p&amp;&amp;i&gt;1)</span><br><span class="line"> 	&#123;</span><br><span class="line"> 		p&#x3D;p-&gt;next;</span><br><span class="line"> 		i--;</span><br><span class="line">	&#125;</span><br><span class="line">	if(p&#x3D;&#x3D;NULL || i&lt;1) return;</span><br><span class="line">	LNode * s&#x3D;new LNode;</span><br><span class="line">	s-&gt;data&#x3D;e;</span><br><span class="line">	s-&gt;next&#x3D;p-&gt;next;</span><br><span class="line">	p-&gt;next&#x3D;s;</span><br><span class="line"> &#125;</span><br><span class="line"> int main()</span><br><span class="line"> &#123;</span><br><span class="line"> 	int n;</span><br><span class="line"> 	LinkList L;</span><br><span class="line"> 	L.Init();</span><br><span class="line"> 	</span><br><span class="line"> 	cin&gt;&gt;n;</span><br><span class="line"> 	for(int i&#x3D;0;i&lt;n;i++)</span><br><span class="line"> 	&#123;</span><br><span class="line"> 		int t;</span><br><span class="line">		cin&gt;&gt;t;</span><br><span class="line">		L.InsertBefore(i+1,t);	</span><br><span class="line">	&#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="如何分别用头插法和尾插法建立带头结点的单链表？"><a href="#如何分别用头插法和尾插法建立带头结点的单链表？" class="headerlink" title="如何分别用头插法和尾插法建立带头结点的单链表？"></a>如何分别用头插法和尾插法建立带头结点的单链表？</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;单链表的实现</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;后插法创建单链表</span><br><span class="line">void LinkList::createlist(int n)</span><br><span class="line">&#123;</span><br><span class="line">	head&#x3D;new LNode;</span><br><span class="line">	head-&gt;next&#x3D;NULL;</span><br><span class="line">	LNode * p&#x3D;head;</span><br><span class="line">	while(n--)</span><br><span class="line">	&#123;</span><br><span class="line">		LNode * q&#x3D;new LNode;</span><br><span class="line">		cin&gt;&gt;q-&gt;data;</span><br><span class="line">		q-&gt;next&#x3D;NULL;</span><br><span class="line">		p-&gt;next&#x3D;q;</span><br><span class="line">		p&#x3D;q;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>//前插法<br> void LinkList::Create(int n)<br> {<br>     Init();<br>     for(int i=n;i&gt;0;i–)<br>     {<br>         LNode * p=new LNode;<br>         cin&gt;&gt;p-&gt;data;<br>         p-&gt;next=head-&gt;next;<br>         head-&gt;next=p;<br>    }<br> }</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 链表的建立、遍历、查找、插入、删除等算法的思想和实现？</span><br></pre></td></tr></table></figure>
+<p>//链表的建立插入<br> #include<iostream><br> using namespace std;</iostream></p>
+<p> typedef int ElemType;</p>
+<p> struct LNode{<br>     ElemType data;<br>     LNode * next;<br> }; </p>
+<p> struct LinkList{<br>     LNode * head;<br>     void Init();  //初始化<br>     void Create(int n);<br>    void InsertBefore(int i,ElemType e);<br> };</p>
+<p> void LinkList::Init(){<br>     head=new LNode;<br>     head-&gt;next=NULL;<br> }</p>
+<p> void LinkList::InsertBefore(int i,ElemType e)<br> {<br>     LNode * p=head;<br>     while(p&amp;&amp;i&gt;1)<br>     {<br>         p=p-&gt;next;<br>         i–;<br>    }<br>    if(p==NULL || i&lt;1) return;<br>    LNode * s=new LNode;<br>    s-&gt;data=e;<br>    s-&gt;next=p-&gt;next;<br>    p-&gt;next=s;<br> }<br> int main()<br> {<br>     int n;<br>     LinkList L;<br>     L.Init();</p>
+<pre><code> cin&gt;&gt;n;
+ for(int i=0;i&lt;n;i++)
+ &#123;
+     int t;
+    cin&gt;&gt;t;
+    L.InsertBefore(i+1,t);    
+&#125;</code></pre>
+<p> }<br>```</p>
+
       
     </div>
 
@@ -842,7 +943,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-03-15 17:06:06" itemprop="dateModified" datetime="2021-03-15T17:06:06+08:00">2021-03-15</time>
+        <time title="Modified: 2021-05-06 20:37:06" itemprop="dateModified" datetime="2021-05-06T20:37:06+08:00">2021-05-06</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -932,7 +1033,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-03-15 17:05:54" itemprop="dateModified" datetime="2021-03-15T17:05:54+08:00">2021-03-15</time>
+        <time title="Modified: 2021-05-06 20:37:03" itemprop="dateModified" datetime="2021-05-06T20:37:03+08:00">2021-05-06</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
