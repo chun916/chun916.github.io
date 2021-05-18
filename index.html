@@ -172,7 +172,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-count">22</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -214,6 +214,187 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://chun916.github.io/2021/05/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0%EF%BC%8816%EF%BC%89%EF%BC%9A%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="nie shilin">
+      <meta itemprop="description" content="桃李春风一杯酒，江湖夜雨十年灯。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="chun'sBlog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/05/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0%EF%BC%8816%EF%BC%89%EF%BC%9A%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E7%AE%97%E6%B3%95/" class="post-title-link" itemprop="url">数据结构笔记（16）：最短路径算法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2021-05-18 19:34:30 / Modified: 20:57:14" itemprop="dateCreated datePublished" datetime="2021-05-18T19:34:30+08:00">2021-05-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">数据结构笔记</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <a id="more"></a>
+
+<h3 id="最短路径求解算法有哪2种？"><a href="#最短路径求解算法有哪2种？" class="headerlink" title="最短路径求解算法有哪2种？"></a>最短路径求解算法有哪2种？</h3><ul>
+<li>Dijkstra算法： 求从某个源点到其余各点的最短路径</li>
+<li>Floyd算法： 求每一对顶点之间的最短路径</li>
+</ul>
+<h3 id="Dijkstra算法的思想是怎样的？"><a href="#Dijkstra算法的思想是怎样的？" class="headerlink" title="Dijkstra算法的思想是怎样的？"></a>Dijkstra算法的思想是怎样的？</h3><ul>
+<li>求从某个源点到其余各点的最短路径<br>基本思想:依最短路径的长度递增的次序求得各条路径。<br>第一条最短路径的特点：在这条路径上，必定只含一条从源点出发的边，并且这条边的权值最小。<br>源点到其余顶点的最短路径的特点：或者是直接从源点到该顶点(只含1条边)；或者是从源点经过已求得最短路径的顶点，再到达该顶点。</li>
+<li>把图G的顶点集V分为两个集合S（已有顶点集合）和V-S（剩余顶点集合），S存放已经求得最短路径的顶点（S初始状态只包含源点v，每求得一条最短路径v,…,k，就将k加入S，并修正从v到k的邻接点w的最短路长度），按最短路径长度递增次序把V-S中顶点逐个加入到S中，直到S=V。</li>
+</ul>
+<h3 id="如何根据给定的图用Dijkstra算法求解最短路径？"><a href="#如何根据给定的图用Dijkstra算法求解最短路径？" class="headerlink" title="如何根据给定的图用Dijkstra算法求解最短路径？"></a>如何根据给定的图用Dijkstra算法求解最短路径？</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">void Dijkstra ( MGraphG,intv )&#123;  &#x2F;&#x2F;求图G（采用邻接矩阵）从顶点v出发的单源最短路径</span><br><span class="line">	&#x2F;&#x2F;辅助数组初始化</span><br><span class="line">	fill(visited,visited+G.vexnum,false);</span><br><span class="line">	for(i&#x3D;0;i&lt;G.vexnum;i++)&#123;</span><br><span class="line">			dist[i]&#x3D;G.mat[v][i];</span><br><span class="line">			adjvex[i]&#x3D;v;</span><br><span class="line">		&#125;</span><br><span class="line">		visited[v]&#x3D;true;&#x2F;&#x2F;顶点v放到已访问集合S</span><br><span class="line">		for(i&#x3D;1;i&lt;&#x3D;G.vexnum-1;i++)&#123;&#x2F;&#x2F;循环G.vexnum-1轮</span><br><span class="line">			int k&#x3D;MinVertex();&#x2F;&#x2F;与Prim算法相同</span><br><span class="line">			visited[k]&#x3D;true;&#x2F;&#x2F;顶点k加入集合</span><br><span class="line">			for(intw&#x3D;0;w&lt;G.vexnum;w++)&#123;&#x2F;&#x2F;调整数组dist和adjvex</span><br><span class="line">				if(dist[w]&gt;dist[k]+G.mat[k][w]&amp;&amp;visited[w]&#x3D;&#x3D;false)</span><br><span class="line">				&#123;</span><br><span class="line">					dist[w]&#x3D;dist[k]+G.mat[k][w];</span><br><span class="line">					adjvex[w]&#x3D;k;</span><br><span class="line">				&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;数组dist保存了从源点出发的最短路径的长度，回溯adjvex数组则可以求得最短路径的构造情况。if(G.mat[v][i]&lt;MaxVal)adjvex[i]&#x3D;v;elseadjvex[i]&#x3D;-1;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;寻找V-S中未被访问，且dist最小的顶点</span><br><span class="line">int MinVertex()&#123;</span><br><span class="line">	int k&#x3D;-1;</span><br><span class="line">	int min&#x3D;INT_MAX;</span><br><span class="line">	for(inti&#x3D;0;i&lt;vexnum;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		if(dist[i]&lt;min&amp;&amp;visited[i]&#x3D;&#x3D;false)</span><br><span class="line">		&#123;</span><br><span class="line">			min&#x3D;dist[i];</span><br><span class="line">			k&#x3D;i;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return k;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="Floyd算法的思想是怎样的？"><a href="#Floyd算法的思想是怎样的？" class="headerlink" title="Floyd算法的思想是怎样的？"></a>Floyd算法的思想是怎样的？</h3><p>解决办法1：每次以一个顶点为源点，调用Dijkstra算法n次。显然，时间复杂度为O(n3)。<br>解决办法2：Floyd提出的求每一对顶点之间的最短路径算法——Floyd算法，其时间复杂度也是O(n3)，但形式上要简单些。<br>Floyd算法思想：<br>对于从顶点i到j的路径，进行n次试探：<br>首先考虑路径(i,0,j)是否存在，如果存在，则比较(i,j)和(i,0,j)的路径长度，取较短者(即，从i到j的中间顶点的序号不大于0的最短路径)。然后在路径上再增加一个顶点1，依此类推，在经过n次比较后，最后求得的必是从顶点i到顶点j的最短路径的长度。</p>
+<h3 id="如何使用Floyd算法求解给定图的任意2点之间的最短路径？"><a href="#如何使用Floyd算法求解给定图的任意2点之间的最短路径？" class="headerlink" title="如何使用Floyd算法求解给定图的任意2点之间的最短路径？"></a>如何使用Floyd算法求解给定图的任意2点之间的最短路径？</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">voidFloyd(MGraphG)&#123;&#x2F;&#x2F;求网中每对顶点间最短路径长度</span><br><span class="line">	int D[MaxVN][MaxVN];</span><br><span class="line">	int n&#x3D;G.vexnum;</span><br><span class="line">	for(i&#x3D;0;i&lt;n;i++)&#123;</span><br><span class="line">		for(j&#x3D;0;j&lt;n;j++)</span><br><span class="line">		&#123;</span><br><span class="line">			D[i][j]&#x3D;G.mat[i][j];</span><br><span class="line">			&#x2F;&#x2F;InitializeD(-1)[i,j]</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	&#x2F;&#x2F;递推求解每对顶点间最短路径长度</span><br><span class="line">	for(k&#x3D;0;k&lt;n;k++)&#x2F;&#x2F;n次试探,中间经过的顶点编号不大于k</span><br><span class="line">	&#123;</span><br><span class="line">		for(i&#x3D;0;i&lt;n;i++)&#x2F;&#x2F;遍历邻接矩阵</span><br><span class="line">		&#123;</span><br><span class="line">			for(j&#x3D;0;j&lt;n;j++)&#x2F;&#x2F;遍历邻接矩阵</span><br><span class="line">			&#123;</span><br><span class="line">				D[i][j]&#x3D;min(D[i][k]+D[k][j],D[i][j]);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;采用邻接矩阵本算法没有保存最短路径，只求出了最短路径的长度。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+ 
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://chun916.github.io/2021/05/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0%EF%BC%8815%EF%BC%89%EF%BC%9A%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="nie shilin">
+      <meta itemprop="description" content="桃李春风一杯酒，江湖夜雨十年灯。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="chun'sBlog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/05/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0%EF%BC%8815%EF%BC%89%EF%BC%9A%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" class="post-title-link" itemprop="url">数据结构笔记（15）：最小生成树</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2021-05-18 19:33:52 / Modified: 20:57:04" itemprop="dateCreated datePublished" datetime="2021-05-18T19:33:52+08:00">2021-05-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">数据结构笔记</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="什么是最小生成树？"><a href="#什么是最小生成树？" class="headerlink" title="什么是最小生成树？"></a>什么是最小生成树？</h3><ul>
+<li>生成树：n个顶点的连通图G的生成树是包含G中全部顶点的一个极小连通子图。</li>
+<li>生成树的代价：设G=（V，E）是一个无向连通网，生成树上各边的权值之和称为该生成树的代价。</li>
+<li>最小生成树：在无向连通网G所有生成树中，代价最小的生成树称为最小生成树。</li>
+</ul>
+<h3 id="Prim算法的算法思想是怎样的？如何根据Prim算法求解最小生成树？"><a href="#Prim算法的算法思想是怎样的？如何根据Prim算法求解最小生成树？" class="headerlink" title="Prim算法的算法思想是怎样的？如何根据Prim算法求解最小生成树？"></a>Prim算法的算法思想是怎样的？如何根据Prim算法求解最小生成树？</h3><ul>
+<li>时间复杂度:(O(n*n))， 适用于稠密图</li>
+<li>Prim算法从已有顶点（初始时可选第一个顶点作为起始顶点）出发，找权值最小的边加入，至n个顶点止。<br>需要注意的是：在加边过程中不能构成回路。</li>
+<li>Prim算法——伪代码</li>
+</ul>
+<p>1.初始化辅助数组visited,dist和adjvex；<br>2.将起始顶点u加入集合U中；<br>3.重复执行下列操作n-1次:<br>在dist中求得最小值的下标为k；<br>将顶点k加入集合U中；<br>调整数组dist和adjvex；</p>
+<h3 id="Kruskal算法的算法思想是怎样的？如何根据Kruskal算法求解最小生成树？"><a href="#Kruskal算法的算法思想是怎样的？如何根据Kruskal算法求解最小生成树？" class="headerlink" title="Kruskal算法的算法思想是怎样的？如何根据Kruskal算法求解最小生成树？"></a>Kruskal算法的算法思想是怎样的？如何根据Kruskal算法求解最小生成树？</h3><ul>
+<li>时间复杂度： O(e * loge) ,适用于稀疏图</li>
+<li>Kruskal算法在所有边中依次加入权值最小的边，直至n-1条边止（过程中不能构成回路）。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;首先，将网中全部的边放入数组edges,并按weight从小到大排序</span><br><span class="line">int k&#x3D;0, cost&#x3D;0; &#x2F;&#x2F;k是选中的边数,cost是MST代价</span><br><span class="line">for(int i&#x3D;0;i&lt;m&amp;&amp;k&lt;n-1;i++)</span><br><span class="line">&#123;</span><br><span class="line">	&#x2F;&#x2F;m、n分别是实际边数、顶点数</span><br><span class="line">	if(Union(edges[i].from,edges[i].to)&#x3D;&#x3D;true)  &#x2F;&#x2F;使用并查集判断不构成回路</span><br><span class="line">	&#123;</span><br><span class="line">		edges[i].used&#x3D;true;</span><br><span class="line">		k++;</span><br><span class="line">		cost+&#x3D;edges[i].weight;</span><br><span class="line">	&#125;</span><br><span class="line">	else	edges[i].used&#x3D;false;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">struct Edge&#123;</span><br><span class="line">	int from,to,weight；</span><br><span class="line">	bool used;&#x2F;&#x2F;表示是否采用</span><br><span class="line">&#125;edges[M];&#x2F;&#x2F;M是最大边数</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+（4）采用Prim算法如何判断图是非连通的？<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">for(i&#x3D;0;i&lt;G.vexnum;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		dist[i]&#x3D;G.mat[u][i];</span><br><span class="line">		if(G.mat[u][i]&lt;MaxVal) adjvex[i]&#x3D;u;  &#x2F;&#x2F;边值为无穷大，说明不连通</span><br><span class="line">    	else adjvex[i]&#x3D;-1;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+（5）如何编程实现Prim算法？</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;邻接矩阵中，边不存在为INT_MAX，边不存在且i&#x3D;&#x3D;j时为0，dist数组中n个值循环n-1次，使起始点的dist数组值为0</span><br><span class="line">void Prim(MGraphG,intu)</span><br><span class="line">&#123;</span><br><span class="line">	&#x2F;&#x2F;从顶点u出发构造连通网（采用邻接矩阵存储）的最小生成树</span><br><span class="line">	&#x2F;&#x2F;辅助数组初始化</span><br><span class="line">	for(i&#x3D;0;i&lt;G.vexnum;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		dist[i]&#x3D;G.mat[u][i];</span><br><span class="line">		adjvex[i]&#x3D;u;</span><br><span class="line">	&#125;</span><br><span class="line">	fill(visited,visited+G.vexnum,false);</span><br><span class="line">	visited[u]&#x3D;true;&#x2F;&#x2F;初始，U＝&#123;u&#125;</span><br><span class="line">	for(int v&#x3D;1;v&lt;&#x3D;G.vexnum-1;v++)</span><br><span class="line">	&#123;</span><br><span class="line">		&#x2F;&#x2F;选择vexnum-1个顶点(边)</span><br><span class="line">		int k&#x3D;MinVertex();&#x2F;&#x2F;加入生成树的下一个顶点(k)</span><br><span class="line">		visited[k]&#x3D;true;&#x2F;&#x2F;新节点加入集合U</span><br><span class="line">		&#x2F;&#x2F;调整集合V-U中剩余顶点到集合U的最短距离</span><br><span class="line">		for(i&#x3D;0;i&lt;G.vexnum;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			if(visited[i]&#x3D;&#x3D;false&amp;&amp;G.mat[k][i]&lt;dist[i])</span><br><span class="line">			&#123;</span><br><span class="line">				dist[i]&#x3D;G.mat[k][i];</span><br><span class="line">				adjvex[i]&#x3D;k;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">辅助数组保存了最小生成树的完整信息，其中，dist之和就是MST的代价,adjvex则给出了MST的构造情况。</span><br><span class="line">int cost&#x3D;0;</span><br><span class="line">for(i&#x3D;0;i&lt;G.vexnum;i++)</span><br><span class="line">&#123;</span><br><span class="line">	cost+&#x3D;dist[i];</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;图非连通时</span><br><span class="line">if(G.mat[u][i]&lt;MaxVal) adjvex[i]&#x3D;u;</span><br><span class="line">else adjvex[i]&#x3D;-1;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+ 
+
 
     
 
@@ -985,196 +1166,8 @@
  
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://chun916.github.io/2021/04/08/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0%EF%BC%887%EF%BC%89%EF%BC%9A%E4%B8%B2%E3%80%81%E6%95%B0%E7%BB%84%E5%92%8C%E5%B9%BF%E4%B9%89%E8%A1%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="nie shilin">
-      <meta itemprop="description" content="桃李春风一杯酒，江湖夜雨十年灯。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="chun'sBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/04/08/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0%EF%BC%887%EF%BC%89%EF%BC%9A%E4%B8%B2%E3%80%81%E6%95%B0%E7%BB%84%E5%92%8C%E5%B9%BF%E4%B9%89%E8%A1%A8/" class="post-title-link" itemprop="url">数据结构笔记（7）：串、数组和广义表</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-04-08 20:41:01" itemprop="dateCreated datePublished" datetime="2021-04-08T20:41:01+08:00">2021-04-08</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-05-06 20:37:19" itemprop="dateModified" datetime="2021-05-06T20:37:19+08:00">2021-05-06</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">数据结构笔记</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <ul>
-<li>零个或多个字符组成的字符序列。</li>
-</ul>
-<h3 id="包含空格的字符串如何输入？"><a href="#包含空格的字符串如何输入？" class="headerlink" title="包含空格的字符串如何输入？"></a>包含空格的字符串如何输入？</h3><p>使用STL之string 处理字符串。<br>cin：输入不含空格的串。<br>getline(cin,s):输入包含空格的串</p>
-<h3 id="如何求串长？"><a href="#如何求串长？" class="headerlink" title="如何求串长？"></a>如何求串长？</h3><p>length()/size()</p>
-<h3 id="如何取得字符中的一个个字符？"><a href="#如何取得字符中的一个个字符？" class="headerlink" title="如何取得字符中的一个个字符？"></a>如何取得字符中的一个个字符？</h3><p>使用下标：s[0]、s[1]…</p>
-<h3 id="如何现串的赋值、联接、比较？"><a href="#如何现串的赋值、联接、比较？" class="headerlink" title="如何现串的赋值、联接、比较？"></a>如何现串的赋值、联接、比较？</h3><p>字符串连接符： +<br>赋值和比较直接进行，比较：依照ASCII码依次比较</p>
-<h3 id="如何取子串？"><a href="#如何取子串？" class="headerlink" title="如何取子串？"></a>如何取子串？</h3><p>substr(a,len)<br>a:起始位置<br>len：子串长度长度</p>
-<h3 id="如何在串中查找子串？"><a href="#如何在串中查找子串？" class="headerlink" title="如何在串中查找子串？"></a>如何在串中查找子串？</h3><p>find()</p>
-<h3 id="如何正确的做到：先输入一个整数再输入一个包含空格的字符串？"><a href="#如何正确的做到：先输入一个整数再输入一个包含空格的字符串？" class="headerlink" title="如何正确的做到：先输入一个整数再输入一个包含空格的字符串？"></a>如何正确的做到：先输入一个整数再输入一个包含空格的字符串？</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int a;</span><br><span class="line">string s;</span><br><span class="line">cin&gt;&gt;a;</span><br><span class="line">getchar();</span><br><span class="line">getline(cin,s);</span><br></pre></td></tr></table></figure>
-<h3 id="一维数组中第i个元素的地址如何计算？"><a href="#一维数组中第i个元素的地址如何计算？" class="headerlink" title="一维数组中第i个元素的地址如何计算？"></a>一维数组中第i个元素的地址如何计算？</h3><p>首地址为a时 ,LOC(i) = a+i*sizeof(ElemType)   </p>
-<h3 id="二维数组A中元素A-i-j-的地址按行主序和列主序时分别如何计算？"><a href="#二维数组A中元素A-i-j-的地址按行主序和列主序时分别如何计算？" class="headerlink" title="二维数组A中元素A[i][j]的地址按行主序和列主序时分别如何计算？"></a>二维数组A中元素A[i][j]的地址按行主序和列主序时分别如何计算？</h3><p>m行n列<br>行主序：LOC(i,j) = LOC(0,0) + (n*i+j)<em>L<br>列主序：LOC(i,j) = LOC(0,0) + (m</em>j+i)*L</p>
-<h3 id="什么是广义表？广义表的深度、长度各自指什么？是否会求广义表的表头、表尾？"><a href="#什么是广义表？广义表的深度、长度各自指什么？是否会求广义表的表头、表尾？" class="headerlink" title="什么是广义表？广义表的深度、长度各自指什么？是否会求广义表的表头、表尾？"></a>什么是广义表？广义表的深度、长度各自指什么？是否会求广义表的表头、表尾？</h3><p>广义表(列表)：n(n&gt;0)个表元素组成的有限序列，记作：LS=(a1,a2,…,an)，是一个多层次的线性结构<br>LS:表名<br>ai是表元素，可以表（称为子表），可以是数据元素</p>
-<p>求表头：GetHead(L):非空广义表的第一个元素<br>求表尾：GetTail(L )：非空广义表出去表头元素以外其它元素所构成的表。表尾一定是一个表。<br>任何一个非空广义表都可拆分为表头和表尾两部分。<br>广义表的长度：最外层包含的元素个数。<br>广义表的深度定义为所含括弧的重数。<br>如广义表E = （a,E）:是一个递归表，深度是无穷值，长度是有限值-2。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
- 
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://chun916.github.io/2021/04/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0%EF%BC%886%EF%BC%89%EF%BC%9A%E9%93%BE%E5%BC%8F%E9%98%9F%E5%88%97-%E9%98%9F%E5%88%97%E5%BA%94%E7%94%A8%E4%B9%8B%E8%BF%B7%E5%AE%AB%E6%9C%80%E7%9F%AD%E6%AD%A5%E6%95%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="nie shilin">
-      <meta itemprop="description" content="桃李春风一杯酒，江湖夜雨十年灯。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="chun'sBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/04/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0%EF%BC%886%EF%BC%89%EF%BC%9A%E9%93%BE%E5%BC%8F%E9%98%9F%E5%88%97-%E9%98%9F%E5%88%97%E5%BA%94%E7%94%A8%E4%B9%8B%E8%BF%B7%E5%AE%AB%E6%9C%80%E7%9F%AD%E6%AD%A5%E6%95%B0/" class="post-title-link" itemprop="url">数据结构笔记（6）：链式队列&队列应用之迷宫最短步数</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-04-06 20:57:58" itemprop="dateCreated datePublished" datetime="2021-04-06T20:57:58+08:00">2021-04-06</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-05-06 20:37:16" itemprop="dateModified" datetime="2021-05-06T20:37:16+08:00">2021-05-06</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">数据结构笔记</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="什么是链式队列？如何画出链式队列示意图？"><a href="#什么是链式队列？如何画出链式队列示意图？" class="headerlink" title="什么是链式队列？如何画出链式队列示意图？"></a>什么是链式队列？如何画出链式队列示意图？</h3><p>链式队列实际是插入、删除等操作受限的链表，同时带有队头指针和队尾指针。</p>
-<p><img src="https://i.loli.net/2021/04/06/2MN4Ouw3l5dXPA1.jpg" alt="链式队列.JPG"></p>
-<h3 id="如何实现链式队列的初始化、判空、取队头元素、入队、出队等操作？"><a href="#如何实现链式队列的初始化、判空、取队头元素、入队、出队等操作？" class="headerlink" title="如何实现链式队列的初始化、判空、取队头元素、入队、出队等操作？"></a>如何实现链式队列的初始化、判空、取队头元素、入队、出队等操作？</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">struct QNode&#123;</span><br><span class="line">	ElemType data;</span><br><span class="line">	QNode * next;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">struct LinkQueue&#123;</span><br><span class="line">	QNode * front, *rear;  &#x2F;&#x2F;队头、队尾指针</span><br><span class="line">	void Clear();</span><br><span class="line">	ElemType GetFront();  &#x2F;&#x2F;取队头元素</span><br><span class="line">	void EnQueue(ElemType e);   &#x2F;&#x2F;入队</span><br><span class="line">	void DeQueue();  &#x2F;&#x2F;出队</span><br><span class="line">	bool Empty();  &#x2F;&#x2F;判空</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void LinkQueue::Init()&#123;</span><br><span class="line">	front &#x3D; rear &#x3D; new QNode;</span><br><span class="line">	front-&gt;next &#x3D; NULL;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bool LinkQueue::Empty()</span><br><span class="line">&#123;</span><br><span class="line">	return front&#x3D;&#x3D;rear;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void LinkQueue::Clear()</span><br><span class="line">&#123;</span><br><span class="line">	front-&gt;next&#x3D;NULL;</span><br><span class="line">	rear&#x3D;front;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Elemtype LinkQueue::GetFront()&#123;</span><br><span class="line">	if(front&#x3D;&#x3D;rear)	return;</span><br><span class="line">	return front-&gt;next-&gt;data;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void LinkQueue::EnQueue(ElemType e)&#123;</span><br><span class="line">	QNode * p&#x3D;new QNode;</span><br><span class="line">	p-&gt;data&#x3D;e;</span><br><span class="line">	p-&gt;next&#x3D;NULL;</span><br><span class="line">	rear-&gt;next&#x3D;p;  &#x2F;&#x2F;新节点链接到队尾</span><br><span class="line">	rear&#x3D;p;   &#x2F;&#x2F;新节点成为新的队尾结点</span><br><span class="line">&#125;</span><br><span class="line">void LinkQueue::DeQueue()</span><br><span class="line">&#123;</span><br><span class="line">	if(front&#x3D;&#x3D;rear)	return;</span><br><span class="line">	QNode * p &#x3D; front-&gt;next;</span><br><span class="line">	front-&gt;next &#x3D; p-&gt;next;</span><br><span class="line">	if(rear&#x3D;&#x3D;p)	rear&#x3D;front;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="求解迷宫最短步数的关键问题有哪些？"><a href="#求解迷宫最短步数的关键问题有哪些？" class="headerlink" title="求解迷宫最短步数的关键问题有哪些？"></a>求解迷宫最短步数的关键问题有哪些？</h3><p><img src="https://i.loli.net/2021/04/06/r1F3hQo7CAjxk5i.jpg" alt="迷宫问题.JPG"><br>入口出发，四周搜索，记下所有一步能到达的点，依次循环，直到找到出口，就是最短步数。</p>
-<ol>
-<li>表示迷宫的数据结构：二维数组</li>
-<li>试探方向：上下左右四个方向，使用增量数组，求新点坐标。</li>
-<li>防止重复到达某点，发生死循环：使用标志数组visited[m][n],初始化为false,到达后置为true。</li>
-<li>队列的设计</li>
-</ol>
-<h3 id="如何运用queue求解迷宫最短步数问题？"><a href="#如何运用queue求解迷宫最短步数问题？" class="headerlink" title="如何运用queue求解迷宫最短步数问题？"></a>如何运用queue求解迷宫最短步数问题？</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">struct Pos&#123;       &#x2F;&#x2F;坐标的结构体</span><br><span class="line">	int x,y,steps;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int dir[4][2] &#x3D; &#123;&#123;0,1&#125;,&#123;1,0&#125;,&#123;0,-1&#125;,&#123;-1,0&#125;&#125;;   &#x2F;&#x2F;四个方向</span><br><span class="line">const int M&#x3D;100,N&#x3D;100;</span><br><span class="line">char maze[M][N];  &#x2F;&#x2F;迷宫数组</span><br><span class="line">bool visited[M][N];   &#x2F;&#x2F;标记数组</span><br><span class="line">Pos S,T;  &#x2F;&#x2F;起点、终点</span><br><span class="line">int m,n;  &#x2F;&#x2F;实际行、列数</span><br><span class="line">int mazeBFS();  &#x2F;&#x2F;迷宫广度优先搜索</span><br><span class="line">void inputMaze();  &#x2F;&#x2F;输入迷宫</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	cin&gt;&gt;m&gt;&gt;n;</span><br><span class="line">	inputMaze();</span><br><span class="line">	cout&lt;&lt;mazeBFS()&lt;&lt;endl;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">voidinputMaze()&#x2F;&#x2F;输入迷宫，记录起点、终点</span><br><span class="line">&#123;</span><br><span class="line">	for(inti&#x3D;0;i&lt;m;i++)</span><br><span class="line">	&#123;for(intj&#x3D;0;j&lt;n;j++)</span><br><span class="line">		&#123;</span><br><span class="line">			cin&gt;&gt;maze[i][j];</span><br><span class="line">			if(maze[i][j]&#x3D;&#x3D;&#39;S&#39;)&#123;</span><br><span class="line">				S.x&#x3D;i;S.y&#x3D;j;S.steps&#x3D;0;</span><br><span class="line">			&#125;elseif(maze[i][j]&#x3D;&#x3D;&#39;T&#39;)&#123;</span><br><span class="line">				T.x&#x3D;i;T.y&#x3D;j;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int mazeBFS()&#123;</span><br><span class="line">	fill(&amp;visited[0][0],&amp;visited[m-1][n-1]+1,false);</span><br><span class="line">	queue&lt;Pos&gt; Q;</span><br><span class="line">	Q.push(S);</span><br><span class="line">	visited[S.x][S.y]&#x3D;true;</span><br><span class="line">	while(!Q.empty())&#123;</span><br><span class="line">		Pos p &#x3D; Q.front();</span><br><span class="line">		Q.pop();</span><br><span class="line">		if(p.x&#x3D;&#x3D;T.x&amp;&amp;p.y++T.y)	return p.steps;</span><br><span class="line">		for(int i&#x3D;0;i&lt;4;i++)&#123;</span><br><span class="line">			Pos e &#x3D; &#123;p.x+dir[i][0],p.y+dir[i][1],p.steps+1&#125;;</span><br><span class="line">			if(e.x&gt;&#x3D;m||e.x&lt;0||e.y&gt;&#x3D;n||e.y&lt;0)	continue;</span><br><span class="line">			if(visited[e.x][e.y] || maze[e.x][e.y]&#x3D;&#x3D;&#39;#&#39;)	continue;</span><br><span class="line">			Q.push(e);</span><br><span class="line">			visited[e.x][e.y]&#x3D;true;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return -1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
- 
-
-
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
