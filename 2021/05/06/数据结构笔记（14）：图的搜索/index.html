@@ -23,15 +23,15 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"chun916.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
-<meta name="description" content="什么是dfs&#x2F;bfs？如何说明连通图的dfs&#x2F;bfs的算法思想？深度优先搜索DFS广度优先搜索BFS 如何针对给定的图得到dfs&#x2F;bfs的结果？ DFS:深度优先搜索遍历连通图的过程类似于树的先序遍历；为每个顶点设计一个访问标记数组，bool visited[vexnum]  BFS:对于连通图，从图中某个顶点V0出发，并在访问此顶点之后依次访问V0的所有未被访问过的邻接点，之后按这些顶点被访问的">
+<meta name="description" content="什么是dfs&#x2F;bfs？如何说明连通图的dfs&#x2F;bfs的算法思想？深度优先搜索DFS广度优先搜索BFS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据结构笔记（14）：图的搜索">
 <meta property="og:url" content="https://chun916.github.io/2021/05/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0%EF%BC%8814%EF%BC%89%EF%BC%9A%E5%9B%BE%E7%9A%84%E6%90%9C%E7%B4%A2/index.html">
 <meta property="og:site_name" content="chun&#39;sBlog">
-<meta property="og:description" content="什么是dfs&#x2F;bfs？如何说明连通图的dfs&#x2F;bfs的算法思想？深度优先搜索DFS广度优先搜索BFS 如何针对给定的图得到dfs&#x2F;bfs的结果？ DFS:深度优先搜索遍历连通图的过程类似于树的先序遍历；为每个顶点设计一个访问标记数组，bool visited[vexnum]  BFS:对于连通图，从图中某个顶点V0出发，并在访问此顶点之后依次访问V0的所有未被访问过的邻接点，之后按这些顶点被访问的">
+<meta property="og:description" content="什么是dfs&#x2F;bfs？如何说明连通图的dfs&#x2F;bfs的算法思想？深度优先搜索DFS广度优先搜索BFS">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-05-06T12:33:06.000Z">
-<meta property="article:modified_time" content="2021-05-06T13:29:06.809Z">
+<meta property="article:modified_time" content="2021-05-25T13:07:43.658Z">
 <meta property="article:author" content="nie shilin">
 <meta property="article:tag" content="数据结构，图，笔记">
 <meta name="twitter:card" content="summary">
@@ -176,7 +176,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -189,7 +189,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -251,10 +251,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2021-05-06 20:33:06 / Modified: 21:29:06" itemprop="dateCreated datePublished" datetime="2021-05-06T20:33:06+08:00">2021-05-06</time>
+      <time title="Created: 2021-05-06 20:33:06" itemprop="dateCreated datePublished" datetime="2021-05-06T20:33:06+08:00">2021-05-06</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-05-25 21:07:43" itemprop="dateModified" datetime="2021-05-25T21:07:43+08:00">2021-05-25</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -276,6 +282,8 @@
     
     <div class="post-body" itemprop="articleBody">
         <h3 id="什么是dfs-bfs？如何说明连通图的dfs-bfs的算法思想？"><a href="#什么是dfs-bfs？如何说明连通图的dfs-bfs的算法思想？" class="headerlink" title="什么是dfs/bfs？如何说明连通图的dfs/bfs的算法思想？"></a>什么是dfs/bfs？如何说明连通图的dfs/bfs的算法思想？</h3><p>深度优先搜索DFS<br>广度优先搜索BFS</p>
+<a id="more"></a>
+
 <h3 id="如何针对给定的图得到dfs-bfs的结果？"><a href="#如何针对给定的图得到dfs-bfs的结果？" class="headerlink" title="如何针对给定的图得到dfs/bfs的结果？"></a>如何针对给定的图得到dfs/bfs的结果？</h3><ul>
 <li><p>DFS:深度优先搜索遍历连通图的过程类似于树的先序遍历；<br>为每个顶点设计一个访问标记数组，bool visited[vexnum]</p>
 </li>
