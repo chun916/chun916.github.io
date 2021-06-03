@@ -185,7 +185,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -223,7 +223,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://chun916.github.io/2021/06/01/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0%EF%BC%8820%EF%BC%89%EF%BC%9A%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91-%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/">
+    <link itemprop="mainEntityOfPage" href="https://chun916.github.io/2021/06/03/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -236,7 +236,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/06/01/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0%EF%BC%8820%EF%BC%89%EF%BC%9A%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91-%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/" class="post-title-link" itemprop="url">数据结构笔记（20）：二叉排序树&平衡二叉树</a>
+          <a href="/2021/06/03/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">微信小程序学习笔记</a>
         </h2>
 
         <div class="post-meta-container">
@@ -248,108 +248,8 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2021-06-01 21:55:32 / Modified: 22:49:58" itemprop="dateCreated datePublished" datetime="2021-06-01T21:55:32+08:00">2021-06-01</time>
+      <time title="Created: 2021-06-03 21:55:32 / Modified: 21:55:35" itemprop="dateCreated datePublished" datetime="2021-06-03T21:55:32+08:00">2021-06-03</time>
     </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">数据结构笔记</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="什么是二叉排序树，它有什么特点？"><a href="#什么是二叉排序树，它有什么特点？" class="headerlink" title="什么是二叉排序树，它有什么特点？"></a>什么是二叉排序树，它有什么特点？</h3><ul>
-<li>二叉排序树或者是一棵空树；或者是具有如下特性的二叉树：<br>（1）若它的左子树不空，则左子树上所有结点的值均小于根结点的值；<br>（2）若它的右子树不空，则右子树上所有结点的值均大于根结点的值；<br>（3）它的左、右子树也都分别是二叉排序树。</li>
-</ul>
-<h3 id="二叉排序树的建立算法思想是怎么样的？"><a href="#二叉排序树的建立算法思想是怎么样的？" class="headerlink" title="二叉排序树的建立算法思想是怎么样的？"></a>二叉排序树的建立算法思想是怎么样的？</h3><p>根据动态查找表的定义，“插入”操作在查找不成功时才进行；<br>若二叉排序树为空树，则新插入的结点为新的根结点；<br>否则，新插入的结点必为一个新的叶子结点，其插入位置由查找过程得到。</p>
-<h3 id="二叉排序树的建立算法如何实现？"><a href="#二叉排序树的建立算法如何实现？" class="headerlink" title="二叉排序树的建立算法如何实现？"></a>二叉排序树的建立算法如何实现？</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;对二叉排序树进行插入操作，e为需插入节点的信息，递归法</span><br><span class="line">void InsertBST(BiTNode*&amp;T,KeyTypee)&#123;</span><br><span class="line">	if(!T)	T&#x3D;new BiTNode(e,NULL,NULL);</span><br><span class="line">	else if(e&lt;T-&gt;data) InsertBST(T-&gt;lchild,e);</span><br><span class="line">	else if(e&gt;T-&gt;data) InsertBST(T-&gt;rchild,e);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="二叉排序树的查找算法"><a href="#二叉排序树的查找算法" class="headerlink" title="二叉排序树的查找算法"></a>二叉排序树的查找算法</h3><ul>
-<li>若二叉排序树为空，则查找失败；否则，<br>（1）若给定值等于根结点的关键字，则查找成功；<br>（2）若给定值小于根结点的关键字，则继续在左子树上进行查找；<br>（3）若给定值大于根结点的关键字，则继续在右子树上进行查找。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">structBiTNode&#x2F;&#x2F;结点结构</span><br><span class="line">&#123;</span><br><span class="line">	int data;&#x2F;&#x2F;简单起见，直接以int作为关键字类型</span><br><span class="line">	BiTNode * lchild, * rchild;&#x2F;&#x2F;左右孩子指针</span><br><span class="line">	BiTNode(int d,BiTNode *left,BiTNode *right)</span><br><span class="line">	&#123;</span><br><span class="line">		data&#x3D;d;</span><br><span class="line">		lchild&#x3D;left;</span><br><span class="line">		rchild&#x3D;right;</span><br><span class="line">	&#125;</span><br><span class="line">	BiTNode()&#123;&#125;</span><br><span class="line">&#125;；</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;递归查找</span><br><span class="line">&#x2F;&#x2F;查找成功后返回指向该结点的指针，否则返回空指针，递归法</span><br><span class="line">BiTNode * SearchBST1(BiTNode*T,KeyTypekey）</span><br><span class="line">&#123;</span><br><span class="line">	if(T&#x3D;&#x3D;NULL) return T;&#x2F;&#x2F;查找不成功</span><br><span class="line">	elseif(key&lt;T-&gt;data) return SearchBST1(T-&gt;lchild,key);</span><br><span class="line">	else if(key&gt;T-&gt;data) return SearchBST1(T-&gt;rchild,key);</span><br><span class="line">	else return T;&#x2F;&#x2F;查找成功key&#x3D;&#x3D;T-&gt;data</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;查找成功后返回指向该结点的指针，否则返回空指针，迭代法</span><br><span class="line">BiTNode  *SearchBST2(BiTNode*T,KeyTypekey)&#123;</span><br><span class="line">	while(T!&#x3D;NULL)&#123;</span><br><span class="line">		if(key&#x3D;&#x3D;T-&gt;data) break;&#x2F;&#x2F;查找成功</span><br><span class="line">		else if(key&lt;T-&gt;data) T&#x3D;T-&gt;lchild;</span><br><span class="line">		else if(key&gt;T-&gt;data) T&#x3D;T-&gt;rchild;</span><br><span class="line">	&#125;</span><br><span class="line">	return T;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-<li>删除二叉树结点：<br>（1）被删除的结点是叶子：其双亲结点中相应指针域的值改为“空”<br>（2）被删除的结点只有左子树或者只有右子树：其双亲结点的相应指针域的值改为“指向被删除结点的左子树或右子树”<br>（3）被删除的结点既有左子树，也有右子树：以其前驱替代之，然后再删除该前驱结点</li>
-</ul>
-<h3 id="二叉排序树的查找性能如何衡量？"><a href="#二叉排序树的查找性能如何衡量？" class="headerlink" title="二叉排序树的查找性能如何衡量？"></a>二叉排序树的查找性能如何衡量？</h3><p><img src="https://i.loli.net/2021/06/01/7oYauDXJKqLEHi1.jpg" alt="二叉排序树查找性能.JPG"></p>
-<h3 id="如何根据给定关键字序列构建二叉排序树？"><a href="#如何根据给定关键字序列构建二叉排序树？" class="headerlink" title="如何根据给定关键字序列构建二叉排序树？"></a>如何根据给定关键字序列构建二叉排序树？</h3><p><img src="https://i.loli.net/2021/06/01/tQ61EN2pghwsWbm.jpg" alt="查找性能例子.JPG"></p>
-<h3 id="什么是平衡因子？什么是平衡二叉树？"><a href="#什么是平衡因子？什么是平衡二叉树？" class="headerlink" title="什么是平衡因子？什么是平衡二叉树？"></a>什么是平衡因子？什么是平衡二叉树？</h3><ul>
-<li>定义：平衡二叉树（AVL树）是二叉排序树的另一种形式，特点为：树中每个结点的左、右子树深度之差的绝对值不大于1。</li>
-<li>平衡因子：左、右子树深度之差。</li>
-</ul>
-<h3 id="如何根据给定关键字序列构建平衡二叉树？"><a href="#如何根据给定关键字序列构建平衡二叉树？" class="headerlink" title="如何根据给定关键字序列构建平衡二叉树？"></a>如何根据给定关键字序列构建平衡二叉树？</h3><ul>
-<li>平衡二叉树构造方法：在插入过程中，采用平衡旋转技术。<br>构造平衡二叉树的一般方法设指针a指向最靠近新插入结点的失衡结点（平衡因子绝对值大于1），则失去平衡后进行调整的规律可归纳为下列四种情况：<br>（1）LL型：在a的左子树根结点的左子树上插入结点；采用单向右旋平衡处理。<br>（2）RR型：在a的右子树根结点的右子树上插入结点；采用单向左旋平衡处理。<br>（3）LR型：在a的左子树根结点的右子树上插入结点；采用双向旋转（先左后右）平衡处理。<br>（4）RL型：在a的右子树根结点的左子树上插入结点；采用双向旋转（先右后左）平衡处理。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
- 
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://chun916.github.io/2021/06/01/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%AC%94%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="nie shilin">
-      <meta itemprop="description" content="桃李春风一杯酒，江湖夜雨十年灯。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="chun'sBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/06/01/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">微信小程序学习笔记</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-06-01 21:55:32" itemprop="dateCreated datePublished" datetime="2021-06-01T21:55:32+08:00">2021-06-01</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-06-03 20:34:35" itemprop="dateModified" datetime="2021-06-03T20:34:35+08:00">2021-06-03</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -527,6 +427,106 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://chun916.github.io/2021/06/01/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0%EF%BC%8820%EF%BC%89%EF%BC%9A%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91-%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="nie shilin">
+      <meta itemprop="description" content="桃李春风一杯酒，江湖夜雨十年灯。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="chun'sBlog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/06/01/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0%EF%BC%8820%EF%BC%89%EF%BC%9A%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91-%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/" class="post-title-link" itemprop="url">数据结构笔记（20）：二叉排序树&平衡二叉树</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-06-01 21:55:32" itemprop="dateCreated datePublished" datetime="2021-06-01T21:55:32+08:00">2021-06-01</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-06-03 21:55:32" itemprop="dateModified" datetime="2021-06-03T21:55:32+08:00">2021-06-03</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">数据结构笔记</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="什么是二叉排序树，它有什么特点？"><a href="#什么是二叉排序树，它有什么特点？" class="headerlink" title="什么是二叉排序树，它有什么特点？"></a>什么是二叉排序树，它有什么特点？</h3><ul>
+<li>二叉排序树或者是一棵空树；或者是具有如下特性的二叉树：<br>（1）若它的左子树不空，则左子树上所有结点的值均小于根结点的值；<br>（2）若它的右子树不空，则右子树上所有结点的值均大于根结点的值；<br>（3）它的左、右子树也都分别是二叉排序树。</li>
+</ul>
+<h3 id="二叉排序树的建立算法思想是怎么样的？"><a href="#二叉排序树的建立算法思想是怎么样的？" class="headerlink" title="二叉排序树的建立算法思想是怎么样的？"></a>二叉排序树的建立算法思想是怎么样的？</h3><p>根据动态查找表的定义，“插入”操作在查找不成功时才进行；<br>若二叉排序树为空树，则新插入的结点为新的根结点；<br>否则，新插入的结点必为一个新的叶子结点，其插入位置由查找过程得到。</p>
+<h3 id="二叉排序树的建立算法如何实现？"><a href="#二叉排序树的建立算法如何实现？" class="headerlink" title="二叉排序树的建立算法如何实现？"></a>二叉排序树的建立算法如何实现？</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;对二叉排序树进行插入操作，e为需插入节点的信息，递归法</span><br><span class="line">void InsertBST(BiTNode*&amp;T,KeyTypee)&#123;</span><br><span class="line">	if(!T)	T&#x3D;new BiTNode(e,NULL,NULL);</span><br><span class="line">	else if(e&lt;T-&gt;data) InsertBST(T-&gt;lchild,e);</span><br><span class="line">	else if(e&gt;T-&gt;data) InsertBST(T-&gt;rchild,e);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="二叉排序树的查找算法"><a href="#二叉排序树的查找算法" class="headerlink" title="二叉排序树的查找算法"></a>二叉排序树的查找算法</h3><ul>
+<li>若二叉排序树为空，则查找失败；否则，<br>（1）若给定值等于根结点的关键字，则查找成功；<br>（2）若给定值小于根结点的关键字，则继续在左子树上进行查找；<br>（3）若给定值大于根结点的关键字，则继续在右子树上进行查找。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">structBiTNode&#x2F;&#x2F;结点结构</span><br><span class="line">&#123;</span><br><span class="line">	int data;&#x2F;&#x2F;简单起见，直接以int作为关键字类型</span><br><span class="line">	BiTNode * lchild, * rchild;&#x2F;&#x2F;左右孩子指针</span><br><span class="line">	BiTNode(int d,BiTNode *left,BiTNode *right)</span><br><span class="line">	&#123;</span><br><span class="line">		data&#x3D;d;</span><br><span class="line">		lchild&#x3D;left;</span><br><span class="line">		rchild&#x3D;right;</span><br><span class="line">	&#125;</span><br><span class="line">	BiTNode()&#123;&#125;</span><br><span class="line">&#125;；</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;递归查找</span><br><span class="line">&#x2F;&#x2F;查找成功后返回指向该结点的指针，否则返回空指针，递归法</span><br><span class="line">BiTNode * SearchBST1(BiTNode*T,KeyTypekey）</span><br><span class="line">&#123;</span><br><span class="line">	if(T&#x3D;&#x3D;NULL) return T;&#x2F;&#x2F;查找不成功</span><br><span class="line">	elseif(key&lt;T-&gt;data) return SearchBST1(T-&gt;lchild,key);</span><br><span class="line">	else if(key&gt;T-&gt;data) return SearchBST1(T-&gt;rchild,key);</span><br><span class="line">	else return T;&#x2F;&#x2F;查找成功key&#x3D;&#x3D;T-&gt;data</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;查找成功后返回指向该结点的指针，否则返回空指针，迭代法</span><br><span class="line">BiTNode  *SearchBST2(BiTNode*T,KeyTypekey)&#123;</span><br><span class="line">	while(T!&#x3D;NULL)&#123;</span><br><span class="line">		if(key&#x3D;&#x3D;T-&gt;data) break;&#x2F;&#x2F;查找成功</span><br><span class="line">		else if(key&lt;T-&gt;data) T&#x3D;T-&gt;lchild;</span><br><span class="line">		else if(key&gt;T-&gt;data) T&#x3D;T-&gt;rchild;</span><br><span class="line">	&#125;</span><br><span class="line">	return T;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li>删除二叉树结点：<br>（1）被删除的结点是叶子：其双亲结点中相应指针域的值改为“空”<br>（2）被删除的结点只有左子树或者只有右子树：其双亲结点的相应指针域的值改为“指向被删除结点的左子树或右子树”<br>（3）被删除的结点既有左子树，也有右子树：以其前驱替代之，然后再删除该前驱结点</li>
+</ul>
+<h3 id="二叉排序树的查找性能如何衡量？"><a href="#二叉排序树的查找性能如何衡量？" class="headerlink" title="二叉排序树的查找性能如何衡量？"></a>二叉排序树的查找性能如何衡量？</h3><p><img src="https://i.loli.net/2021/06/01/7oYauDXJKqLEHi1.jpg" alt="二叉排序树查找性能.JPG"></p>
+<h3 id="如何根据给定关键字序列构建二叉排序树？"><a href="#如何根据给定关键字序列构建二叉排序树？" class="headerlink" title="如何根据给定关键字序列构建二叉排序树？"></a>如何根据给定关键字序列构建二叉排序树？</h3><p><img src="https://i.loli.net/2021/06/01/tQ61EN2pghwsWbm.jpg" alt="查找性能例子.JPG"></p>
+<h3 id="什么是平衡因子？什么是平衡二叉树？"><a href="#什么是平衡因子？什么是平衡二叉树？" class="headerlink" title="什么是平衡因子？什么是平衡二叉树？"></a>什么是平衡因子？什么是平衡二叉树？</h3><ul>
+<li>定义：平衡二叉树（AVL树）是二叉排序树的另一种形式，特点为：树中每个结点的左、右子树深度之差的绝对值不大于1。</li>
+<li>平衡因子：左、右子树深度之差。</li>
+</ul>
+<h3 id="如何根据给定关键字序列构建平衡二叉树？"><a href="#如何根据给定关键字序列构建平衡二叉树？" class="headerlink" title="如何根据给定关键字序列构建平衡二叉树？"></a>如何根据给定关键字序列构建平衡二叉树？</h3><ul>
+<li>平衡二叉树构造方法：在插入过程中，采用平衡旋转技术。<br>构造平衡二叉树的一般方法设指针a指向最靠近新插入结点的失衡结点（平衡因子绝对值大于1），则失去平衡后进行调整的规律可归纳为下列四种情况：<br>（1）LL型：在a的左子树根结点的左子树上插入结点；采用单向右旋平衡处理。<br>（2）RR型：在a的右子树根结点的右子树上插入结点；采用单向左旋平衡处理。<br>（3）LR型：在a的左子树根结点的右子树上插入结点；采用双向旋转（先左后右）平衡处理。<br>（4）RL型：在a的右子树根结点的左子树上插入结点；采用双向旋转（先右后左）平衡处理。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+ 
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="https://chun916.github.io/2021/06/01/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0%EF%BC%8819%EF%BC%89%EF%BC%9A%E5%93%88%E5%B8%8C%E6%9F%A5%E6%89%BE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -558,7 +558,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-06-03 21:50:42" itemprop="dateModified" datetime="2021-06-03T21:50:42+08:00">2021-06-03</time>
+        <time title="Modified: 2021-06-03 21:55:41" itemprop="dateModified" datetime="2021-06-03T21:55:41+08:00">2021-06-03</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -668,10 +668,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2021-05-25 21:09:59 / Modified: 22:08:21" itemprop="dateCreated datePublished" datetime="2021-05-25T21:09:59+08:00">2021-05-25</time>
+      <time title="Created: 2021-05-25 21:09:59" itemprop="dateCreated datePublished" datetime="2021-05-25T21:09:59+08:00">2021-05-25</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-06-03 21:55:49" itemprop="dateModified" datetime="2021-06-03T21:55:49+08:00">2021-06-03</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -759,10 +765,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2021-05-20 20:30:36 / Modified: 21:36:20" itemprop="dateCreated datePublished" datetime="2021-05-20T20:30:36+08:00">2021-05-20</time>
+      <time title="Created: 2021-05-20 20:30:36" itemprop="dateCreated datePublished" datetime="2021-05-20T20:30:36+08:00">2021-05-20</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-06-03 21:56:01" itemprop="dateModified" datetime="2021-06-03T21:56:01+08:00">2021-06-03</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -850,10 +862,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2021-05-18 19:34:30 / Modified: 20:57:14" itemprop="dateCreated datePublished" datetime="2021-05-18T19:34:30+08:00">2021-05-18</time>
+      <time title="Created: 2021-05-18 19:34:30" itemprop="dateCreated datePublished" datetime="2021-05-18T19:34:30+08:00">2021-05-18</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-06-03 21:56:07" itemprop="dateModified" datetime="2021-06-03T21:56:07+08:00">2021-06-03</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -938,10 +956,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2021-05-18 19:33:52 / Modified: 20:57:04" itemprop="dateCreated datePublished" datetime="2021-05-18T19:33:52+08:00">2021-05-18</time>
+      <time title="Created: 2021-05-18 19:33:52" itemprop="dateCreated datePublished" datetime="2021-05-18T19:33:52+08:00">2021-05-18</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-06-03 21:56:22" itemprop="dateModified" datetime="2021-06-03T21:56:22+08:00">2021-06-03</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -1039,7 +1063,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-05-25 21:07:43" itemprop="dateModified" datetime="2021-05-25T21:07:43+08:00">2021-05-25</time>
+        <time title="Modified: 2021-06-03 21:56:31" itemprop="dateModified" datetime="2021-06-03T21:56:31+08:00">2021-06-03</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1129,7 +1153,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-05-06 21:47:48" itemprop="dateModified" datetime="2021-05-06T21:47:48+08:00">2021-05-06</time>
+        <time title="Modified: 2021-06-03 21:56:45" itemprop="dateModified" datetime="2021-06-03T21:56:45+08:00">2021-06-03</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1221,7 +1245,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-05-06 19:43:45" itemprop="dateModified" datetime="2021-05-06T19:43:45+08:00">2021-05-06</time>
+        <time title="Modified: 2021-06-03 21:56:54" itemprop="dateModified" datetime="2021-06-03T21:56:54+08:00">2021-06-03</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
