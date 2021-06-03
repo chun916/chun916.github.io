@@ -172,20 +172,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -214,6 +214,98 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://chun916.github.io/2021/04/22/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0%EF%BC%8811%EF%BC%89%EF%BC%9A%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86%E7%AE%97%E6%B3%95-%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91%E5%92%8C%E5%93%88%E6%B3%95%E6%9B%BC%E7%BC%96%E7%A0%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="nie shilin">
+      <meta itemprop="description" content="桃李春风一杯酒，江湖夜雨十年灯。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="chun'sBlog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/04/22/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0%EF%BC%8811%EF%BC%89%EF%BC%9A%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86%E7%AE%97%E6%B3%95-%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91%E5%92%8C%E5%93%88%E6%B3%95%E6%9B%BC%E7%BC%96%E7%A0%81/" class="post-title-link" itemprop="url">数据结构笔记（11）：二叉树的遍历算法&哈夫曼树和哈法曼编码</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-04-22 20:22:59" itemprop="dateCreated datePublished" datetime="2021-04-22T20:22:59+08:00">2021-04-22</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-05-06 20:36:07" itemprop="dateModified" datetime="2021-05-06T20:36:07+08:00">2021-05-06</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">数据结构笔记</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>###（1）如何根据先序和中序遍历算法确定二叉树？</p>
+<p>###（2）如何根据后序和中序遍历算法确定二叉树？</p>
+<p>###（3）如何根据权值序列建立哈夫曼树？</p>
+<p>###（4）如何根据哈夫曼树建立哈夫曼编码？</p>
+<p>任何一个字符的编码都不是另一个字符的编码的前缀。例如，0、10、110、111即为前缀编码。</p>
+<p>###（5）是否能理解建立哈夫曼树及其编码的算法实现？</p>
+<p>###（6）如何理解哈夫曼树及其编码的填表构造过程？</p>
+<p>###（7）如何写出哈夫曼树（顺序）存储结构的初态、终态？</p>
+<p>###（8）是否能理解建立哈夫曼树及其编码的算法实现？</p>
+<h3 id="设哈夫曼树中有199个结点，则该哈夫曼树中有（-）个叶子结点"><a href="#设哈夫曼树中有199个结点，则该哈夫曼树中有（-）个叶子结点" class="headerlink" title="设哈夫曼树中有199个结点，则该哈夫曼树中有（    ）个叶子结点:"></a>设哈夫曼树中有199个结点，则该哈夫曼树中有（    ）个叶子结点:</h3><p>在哈夫曼树中没有度为1的结点，只有度为0（叶子结点）和度为2的结点。<br>设叶子结点的个数为n0，度为2的结点的个数为n2，由二叉树的性质n0=n2+1，则总结点数n= n0+n2=2*n0-1，得到n0=100</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+ 
+
 
     
 
@@ -1078,90 +1170,6 @@
 <li>全为((( ，栈不为空，state==true;全为))) ，栈为空，state==false。</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;stack&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">const int N&#x3D;30;</span><br><span class="line"></span><br><span class="line">bool match(string s)&#123;</span><br><span class="line">	stack &lt;char&gt; sq;</span><br><span class="line">	bool state&#x3D;true;</span><br><span class="line">	for(int i&#x3D;0;i&lt;s.size();i++)</span><br><span class="line">	&#123;</span><br><span class="line">		if(s[i]&#x3D;&#x3D;&#39;(&#39;||s[i]&#x3D;&#x3D;&#39;[&#39;)&#123;</span><br><span class="line">			sq.push(s[i]);</span><br><span class="line">		&#125;</span><br><span class="line">		else if(sq.empty()&#x3D;&#x3D;false&amp;&amp;s[i]&#x3D;&#x3D;&#39;)&#39;&amp;&amp;&#39;(&#39;&#x3D;&#x3D;sq.top())      &#x2F;&#x2F;取栈顶元素要限制栈非空</span><br><span class="line">		&#123;</span><br><span class="line">			sq.pop();</span><br><span class="line">		&#125;</span><br><span class="line">		else if(sq.empty()&#x3D;&#x3D;false&amp;&amp;s[i]&#x3D;&#x3D;&#39;]&#39;&amp;&amp;&#39;[&#39;&#x3D;&#x3D;sq.top())</span><br><span class="line">		&#123;</span><br><span class="line">			sq.pop();</span><br><span class="line">		&#125;</span><br><span class="line">		else&#123;</span><br><span class="line">			state&#x3D;false;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return sq.empty()&#x3D;&#x3D;true&amp;&amp;state&#x3D;&#x3D;true;      &#x2F;&#x2F;两个条件缺一不可</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	string s;</span><br><span class="line">	while(cin&gt;&gt;s)&#123;</span><br><span class="line">		if(match(s))&#123;</span><br><span class="line">			cout&lt;&lt;&quot;yes&quot;&lt;&lt;endl;</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			cout&lt;&lt;&quot;no&quot;&lt;&lt;endl;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
- 
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="https://chun916.github.io/2021/03/31/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E9%A2%98%E9%9B%86%EF%BC%9A%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="nie shilin">
-      <meta itemprop="description" content="桃李春风一杯酒，江湖夜雨十年灯。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="chun'sBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/03/31/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E9%A2%98%E9%9B%86%EF%BC%9A%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/" class="post-title-link" itemprop="url">程序设计题集：进制转换</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2021-03-31 10:55:34 / Modified: 11:36:15" itemprop="dateCreated datePublished" datetime="2021-03-31T10:55:34+08:00">2021-03-31</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E9%A2%98%E9%9B%86/" itemprop="url" rel="index"><span itemprop="name">程序设计题集</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <a id="more"></a>
-
-<h2 id="栈与队列-进制转换"><a href="#栈与队列-进制转换" class="headerlink" title="栈与队列 进制转换"></a>栈与队列 进制转换</h2><h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>将十进制整数n转换成k进制数。</p>
-<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>首先输入一个整数T，表示测试数据的组数，然后是T组测试数据。每组测试数据输入两个整数n和k（ -1000000 ≤ n ≤ 1000000, 2 ≤ k ≤ 9）。</p>
-<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>对于每组测试，先输出n, 然后输出一个空格，最后输出对应的k进制数。</p>
-<ul>
-<li>注：考虑n等于正、负、零值的情况。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">const int N&#x3D;10000;</span><br><span class="line">typedef int ElemType;</span><br><span class="line"></span><br><span class="line">struct SqStack&#123;</span><br><span class="line">	ElemType * base;</span><br><span class="line">	int top;</span><br><span class="line">	void Init();</span><br><span class="line">	void push(ElemType e);</span><br><span class="line">	void pop();</span><br><span class="line">	int gettop();</span><br><span class="line">	bool Empty();</span><br><span class="line">	void out();</span><br><span class="line">	void conv(int n,int k);</span><br><span class="line">&#125;; </span><br><span class="line"></span><br><span class="line">void SqStack::Init()&#123;</span><br><span class="line">	base&#x3D;new ElemType [N];</span><br><span class="line">	top&#x3D;-1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void SqStack::push(ElemType e)&#123;</span><br><span class="line">	if(top&#x3D;&#x3D;N-1) return;</span><br><span class="line">	top++;</span><br><span class="line">	base[top]&#x3D;e;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void SqStack::pop()&#123;</span><br><span class="line">	if(top&#x3D;&#x3D;-1)	return;</span><br><span class="line">	top--;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int SqStack::gettop()&#123;</span><br><span class="line">	return base[top];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bool SqStack::Empty()&#123;</span><br><span class="line">	return top&#x3D;&#x3D;-1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void SqStack::out()&#123;</span><br><span class="line">	while(Empty()&#x3D;&#x3D;false)&#123;</span><br><span class="line">		cout&lt;&lt;gettop();</span><br><span class="line">		pop();</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;endl;</span><br><span class="line">&#125;</span><br><span class="line">void SqStack::conv(int n,int k)&#123;</span><br><span class="line">	while(n&gt;0)&#123;</span><br><span class="line">		push(n%k);  &#x2F;&#x2F;先入后出，符合进制转换逆序取余</span><br><span class="line">		n&#x2F;&#x3D;k;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">	int t;</span><br><span class="line">	cin&gt;&gt;t;</span><br><span class="line">	while(t--)&#123;</span><br><span class="line">		int n,k;</span><br><span class="line">		cin&gt;&gt;n&gt;&gt;k;</span><br><span class="line">		SqStack sq;</span><br><span class="line">		sq.Init();</span><br><span class="line">		cout&lt;&lt;n&lt;&lt;&#39; &#39;;</span><br><span class="line">		if(n&lt;0)&#123;</span><br><span class="line">			sq.conv(-n,k);</span><br><span class="line">			cout&lt;&lt;&#39;-&#39;;</span><br><span class="line">			sq.out();</span><br><span class="line">		&#125;</span><br><span class="line">		else if(n&#x3D;&#x3D;0)&#123;</span><br><span class="line">			cout&lt;&lt;&#39;0&#39;&lt;&lt;endl;</span><br><span class="line">		&#125;</span><br><span class="line">		else&#123;</span><br><span class="line">			sq.conv(n,k);</span><br><span class="line">			sq.out();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
